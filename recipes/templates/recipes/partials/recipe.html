@@ -1,17 +1,22 @@
 <div class="recipe recipe-list-item">
     <div class="recipe-cover">
         <a href="{% url 'recipes-recipe' recipe.id %}">
-        <img src="{{ recipe.cover.url }}" alt="Temporário">
-    </div>
-    <div class="recipe-title-container">
-        <h2 class="recipe-title">
-            <a href="{% url 'recipes-recipe' recipe.id %}">
+            {% if is_detail_page is True %}
+                <img  src="{{ recipe.cover.url }}" alt="Temporário">
+                {% else %}
+                <img class="recipes" src="{{ recipe.cover.url }}" alt="Temporário">
+            {% endif %}
+
+        </div>
+        <div class="recipe-title-container">
+            <h2 class="recipe-title">
+                <a href="{% url 'recipes-recipe' recipe.id %}">
             {{recipe.title}}</h2>
-            </a>    
+        </a>    
     </div>
-
+    
     <div class="recipe-author">
-
+        
         {% if recipe.author is not None %}
             <span class="recipe-author-item">
                 <i class="fas fa-user"></i>
@@ -60,18 +65,22 @@
     </div>
 
     {% if is_detail_page is not True %}
-    <footer class="recipe-footer">
-        <a class="recipe-read-more button button-dark button-full-width" href="{% url 'recipes-recipe' recipe.id %}">
-            <i class="fas fa-eye"></i>
-            <span>ver mais...</span>
-        </a>
-    </footer>
+
+        <footer class="recipe-footer">
+            <a class="recipe-read-more button button-dark button-full-width" href="{% url 'recipes-recipe' recipe.id %}">
+                <i class="fas fa-eye"></i>
+                <span>ver mais...</span>
+            </a>
+        </footer>
+
     {% endif %}
 
     {% if is_detail_page is True %}
+
         <div class="preparation-steps">
             {{ recipe.preparation_steps|linebreaksbr }}
         </div>
+
     {% endif %}
 
    

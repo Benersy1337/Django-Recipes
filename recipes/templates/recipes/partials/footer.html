@@ -1,9 +1,25 @@
-<footer class="main-footer">
+{% if is_detail_page is True %}
+  <footer class="main-footer-detail-page">
+      <div class="developer">
+        <a href="https://github.com/Benersy1337" target="_blank" rel="noreferrer noopener">By Luan Roberto</a>
+      </div>
+    
+      <div class="powered">
+        <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer noopener">Powered by Django</a>
+      </div>
+  </footer>
+
+
+{% else %}
+
+  <footer class="main-footer">
     <div class="developer">
       <a href="https://github.com/Benersy1337" target="_blank" rel="noreferrer noopener">By Luan Roberto</a>
     </div>
-  
+
     <div class="powered">
       <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer noopener">Powered by Django</a>
     </div>
-</footer>
+  </footer>
+
+{% endif %}
