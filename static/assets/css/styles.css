@@ -157,13 +157,15 @@ h6 {
 }
 
 .recipe img{
-    max-width: 100%;
+    width: 100%;
     background: var(--color-white);
 }
 
 .recipe-list-item{
     max-width: 44rem;
+    height: 60rem;
 }
+
 
 .recipe-list-item:hover{
     /* Da zoom no card quando passa o mouse em cima */
@@ -188,6 +190,11 @@ h6 {
 .recipe-content{
     padding: var(--spacing-gutter-medium);
     padding-top: 2rem;
+}
+
+.text-description{
+    height: 18px;
+    overflow: hidden;
 }
 
 .recipe-author-item{
