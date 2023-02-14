@@ -8,7 +8,6 @@
     
     {% for recipe in recipes %}
         {% include 'recipes/partials/recipe.html' %}
-
         {% empty %}
             <h1 style="margin: 0 auto;">Nenhuma Receita publicada ainda!</h1>
     {% endfor %}

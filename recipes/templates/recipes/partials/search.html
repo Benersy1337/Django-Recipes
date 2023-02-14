@@ -1,8 +1,12 @@
+{% load static %}
 <div class="search-container">
 
     <div class="container">
-        <form action="" class="search-form">
-            <input type="search" name="search" class="search-input">
+        <form action="{% url 'search' %}" class="search-form" method='POST'>
+
+            {% csrf_token %}
+
+            <input type="search" name="searched" class="search-input" placeholder="Procure por Receitas">
             <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
         </form>
     </div>

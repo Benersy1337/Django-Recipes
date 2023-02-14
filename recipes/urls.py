@@ -10,6 +10,7 @@ urlpatterns = [
     path('', views.home, name="recipes-home"),
     path('recipes/<int:id>/', views.recipe, name="recipes-recipe"),
     path('recipes/category/<int:category_id>/', views.category, name="category"),   
+    path('search/', views.search, name="search"),   
     # path('recipes/<uuid:id>/', recipe),    
 ]
 

@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 from recipes.models import Recipe
+from django.db.models.query_utils import Q
+
 
 def home(request):
     recipes = Recipe.objects.filter(is_published=True).order_by('-id')
@@ -24,3 +26,24 @@ def recipe(request, id):
         'recipe': recipe,
         'is_detail_page': True,
     })
+    
+def search(request):
+    
+    if request.method == "POST":
+        
+        searched = request.POST['searched']
+        
+        recipe = Recipe.objects.filter(title__contains=searched, is_published=True)
+
+        return render(request, 
+                    'recipes/pages/searched.html', 
+        {'searched':searched,
+         'recipes': recipe,
+        })
+        
+    else:
+        return render(request, 
+                'recipes/pages/searched.html', 
+    {})
+    
+    
